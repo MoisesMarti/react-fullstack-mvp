@@ -59,7 +59,7 @@ app.route('/api/blogs/:id')
     }
   })
 
-  .delete(async (req, res) => {
+  app.delete('/api/blogs/:id', async (req, res) => {
     const {id} = req.params
     try {
       await pool.query(`DELETE FROM blog_table WHERE blogs_id = ${id}`)
