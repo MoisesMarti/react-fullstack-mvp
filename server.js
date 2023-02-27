@@ -41,10 +41,12 @@ app.route('/api/blogs')
     try {
       const {blogs} = req.body
       await pool.query(`INSERT INTO blog_table (blogs) VALUES ('${blogs}')`)
-      res.status(201).json({validation: true})
+      const {rows} = await pool.query(`SELECT * FROM blog_table`)
+      res.status(201).json(rows)
     } catch (error) {
       res.status(500).json({message: error.message})
     }
+   
   })
  
 app.route('/api/blogs/:id')

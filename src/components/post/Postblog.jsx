@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 
-export default function BlogForm({ handleAddBlog }) {
-  const [blog, setBlog] = useState('');
+export default function BlogForm({blogs, setBlogs}) {
+  const [newPost, setNewPost] = useState('')
+  
+  const handleChange = (e) =>{
+   setNewPost(e.target.value)
+  }
+
 
   const handleSubmit = async (e) => {
   e.preventDefault();
+
+
 
   try {
     const response = await fetch('http://localhost:3000/api/blogs', {
@@ -13,20 +20,19 @@ export default function BlogForm({ handleAddBlog }) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "blogs": `${blog}` 
+        "blogs": `${newPost}` 
         })
     });
 
     if (response.ok) {
       const data = await response.json();
-      handleAddBlog(data);
-      setBlog('');
+      setBlogs(data);
+      console.log(data)
     }
   } catch (error) {
     console.error('Error:', error);
   }
 };
-  console.log(blog)
 
   return (
     <div className="flex justify-center items-center">
@@ -39,8 +45,8 @@ export default function BlogForm({ handleAddBlog }) {
               type="text"
               className="input input-bordered"
               placeholder="Enter your post"
-              value={blog}
-              onChange={(e) => setBlog(e.target.value)}
+              value={newPost}
+              onChange={handleChange}
             />
             <button type="submit" className="btn btn-primary mt-2">
               Create

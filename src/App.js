@@ -33,10 +33,10 @@ function App() {
         <Header />
       </div>
       <div className='mt-10' >
-        <Singleblogs setblogs={setBlogs} blog={blogs}  />
+        <Singleblogs setBlogs={setBlogs} blogs={blogs}  />
       </div>
       <div className='mt-14'>
-        <Blogs blogs={blogs} handleDelete={handleDelete} />
+        <Blogs blogs={blogs} handleDelete={handleDelete}  setBlogs={setBlogs} />
       </div>
       <Footer />
     </>
