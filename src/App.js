@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch('http://localhost:3000/api/blogs')
+      const response = await fetch('/api/blogs')
       const data = await response.json()
       setBlogs(data)
     }
@@ -19,7 +19,7 @@ function App() {
   
  
   const handleDelete = async (id) => {
-     await fetch(`http://localhost:3000/api/blogs/${id}`, {
+     await fetch(`/api/blogs/${id}`, {
       method: 'DELETE'
     });
     const filteredPost = blogs.filter((blog)=> id !== blog.blogs_id);

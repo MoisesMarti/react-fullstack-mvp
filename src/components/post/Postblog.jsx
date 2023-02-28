@@ -15,7 +15,7 @@ export default function BlogForm({blogs, setBlogs}) {
 
 
   try {
-    const response = await fetch('http://localhost:3000/api/blogs', {
+    const response = await fetch('/api/blogs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
