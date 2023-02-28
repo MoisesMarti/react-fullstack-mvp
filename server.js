@@ -4,12 +4,16 @@ const app = express();
 const cors = require ('cors')
 app.use(express.json())
 app.use(cors())
+dotenv.config()
+app.use(express.static('src'))
 
 const pool = new Pool({
-  user: 'moisesmartinez',
-  host: 'localhost',
-  database: 'blogsdatabase',
-  port: 5432
+  // user: 'moisesmartinez',
+  // host: 'localhost',
+  // database: 'blogsdatabase',
+  // port: 5432
+
+  connectionString: process.env.DATABASE_URL
 });
 
 app.route('/api/blogs')
