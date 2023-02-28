@@ -16,7 +16,7 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL
 });
 
-app.route('https://myblogs-9xed.onrender.com/api/blogs')
+app.route('/api/blogs')
   .get(async (req,res)=>{
     try {
       const blogs = await pool.query(`SELECT * FROM blog_table`)
