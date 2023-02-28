@@ -15,7 +15,7 @@ const Blogs = ({blogs, handleDelete, setBlogs}) => {
 
     try {
       // Send a PATCH request to the server to update the blog post with the ID of selectedBlog.blogs_id
-      const response = await fetch(`http://localhost:3000/api/blogs/${selectedBlog.blogs_id}`, {
+      const response = await fetch(`/api/blogs/${selectedBlog.blogs_id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editedBlog),

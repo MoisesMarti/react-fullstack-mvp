@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch('/api/blogs')
+      const response = await fetch('https://myblogs-9xed.onrender.com/api/blogs')
       const data = await response.json()
       setBlogs(data)
     }
