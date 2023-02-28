@@ -25,6 +25,7 @@ const pool = new Pool({
     try {
       res.sendFile(path.join(__dirname, "build", "index.html"))
     } catch (error) {
+      console.log(error.message)
       res.status(500).send(error)
     }
   })
