@@ -6,7 +6,7 @@ app.use(express.json())
 app.use(cors())
 dotenv.config()
 app.use(express.static('src'))
-
+app.use(express.static(path.join(__dirname, "build")))
 const pool = new Pool({
   // user: 'moisesmartinez',
   // host: 'localhost',
@@ -15,6 +15,15 @@ const pool = new Pool({
 
   connectionString: process.env.DATABASE_URL
 });
+
+  app.get('/', (req,res) => {
+    try {
+      res.senfFile(path.join(__dirname, "build", "index.html"))
+    } catch (error) {
+      res.status(500).send(error)
+    }
+  })
+
 
 app.route('/api/blogs')
   .get(async (req,res)=>{
