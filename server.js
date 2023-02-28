@@ -20,13 +20,13 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL
 });
 
-  app.get('/', (req,res) => {
-    try {
-      res.sendFile(path.join(__dirname, "build", "index.html"))
-    } catch (error) {
-      res.status(500).send(error)
-    }
-  })
+  // app.get('/', (req,res) => {
+  //   try {
+  //     res.sendFile(path.join(__dirname, "build", "index.html"))
+  //   } catch (error) {
+  //     res.status(500).send(error)
+  //   }
+  // })
 
 
 app.route('/api/blogs')
