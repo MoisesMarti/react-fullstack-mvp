@@ -5,6 +5,7 @@ export default function BlogForm({blogs, setBlogs}) {
   
   const handleChange = (e) =>{
    setNewPost(e.target.value)
+   e.target.value = ''
   }
 
 
@@ -27,11 +28,13 @@ export default function BlogForm({blogs, setBlogs}) {
     if (response.ok) {
       const data = await response.json();
       setBlogs(data);
-      console.log(data)
+      
     }
   } catch (error) {
     console.error('Error:', error);
   }
+
+  setNewPost('')
 };
 
   return (
