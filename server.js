@@ -21,9 +21,7 @@ const pool = new Pool({
   // port: 5432
   connectionString: process.env.DATABASE_URL,
   
-  ssl: {
-    rejectUnauthorized: false
-  }
+
 });
 
   app.get('/', (req,res) => {
@@ -97,5 +95,5 @@ app.route('/api/blogs/:id')
 
 
 app.listen(port, () => {
-  console.log('Server listening on port 3000');
+  console.log(`Server listening on port ${port}`);
 });
