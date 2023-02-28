@@ -1,12 +1,14 @@
-const express = require('express')
-const path = require("path")
 const dotenv = require('dotenv')
+const path = require("path")
+//
+const express = require('express')
 const {Pool} = require('pg')
 const app = express();
 const cors = require ('cors')
 app.use(express.json())
 app.use(cors())
 dotenv.config()
+///
 app.use(express.static('src'))
 app.use(express.static(path.join(__dirname, "build")))
 const pool = new Pool({
