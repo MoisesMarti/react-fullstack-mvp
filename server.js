@@ -8,8 +8,8 @@ const cors = require ('cors')
 app.use(express.json())
 app.use(cors())
 dotenv.config()
-///
 app.use(express.static('src'))
+///
 app.use(express.static(path.join(__dirname, "build")))
 const pool = new Pool({
   // user: 'moisesmartinez',
