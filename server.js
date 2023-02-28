@@ -1,6 +1,8 @@
 const dotenv = require('dotenv')
 const path = require("path")
 //
+const port = process.env.PORT || 3000
+
 const express = require('express')
 const {Pool} = require('pg')
 const app = express();
@@ -17,8 +19,11 @@ const pool = new Pool({
   // host: 'localhost',
   // database: 'blogsdatabase',
   // port: 5432
-
-  connectionString: process.env.DATABASE_URL
+  connectionString: process.env.DATABASE_URL,
+  
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
   app.get('/', (req,res) => {
@@ -91,6 +96,6 @@ app.route('/api/blogs/:id')
   })
 
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Server listening on port 3000');
 });
