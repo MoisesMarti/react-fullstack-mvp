@@ -20,7 +20,7 @@ const pool = new Pool({
 
   app.get('/', (req,res) => {
     try {
-      res.senfFile(path.join(__dirname, "build", "index.html"))
+      res.sendFile(path.join(__dirname, "build", "index.html"))
     } catch (error) {
       res.status(500).send(error)
     }
